@@ -1,0 +1,55 @@
+@charset "UTF-8";
+
+/* body{
+    overflow-x: scroll;
+} */
+
+header, footer{
+    min-width: 330px;
+}
+
+main{
+    min-width: 330px;
+
+    section{
+
+        #tabela{
+
+            table{
+
+                thead{
+                    
+                    th, td{
+                        font-size: 0.8em;
+                    }
+                }
+
+                tbody{
+
+                    th, td{
+                        font-size: .8em;
+                    }
+                }
+
+                tfoot{
+
+                    th, td{
+                        font-size: .8em;
+                    }
+                }
+            }
+        }
+
+        #configuracoes{
+
+            fieldset{
+                display: grid;
+                grid-template-columns: 1fr;
+
+                button{
+                    width: 100%;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,61 @@
+@charset "UTF-8";
+
+main{
+
+
+    section{
+        width: 90%;
+
+        #tabela{
+            width: 100%;
+
+            table{
+                width: 100%;
+
+                thead{
+                    
+                    th, td{
+                        font-size: 0.9em;
+                    }
+                }
+
+                tbody{
+
+                    th, td{
+                        font-size: .9em;
+                    }
+                }
+
+                tfoot{
+
+                    th, td{
+                        font-size: .9em;
+                    }
+                }
+            }
+        }
+
+        #configuracoes{
+
+
+            fieldset{
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr;
+
+                button{
+                    font-size: 0.9em;
+                }
+            }
+        }
+    }
+}
+
+footer{
+
+    div{
+
+        span{
+            font-size: 0.9em;
+        }
+    }
+}

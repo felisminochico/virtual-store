@@ -5,11 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Loja Virtual</title>
     <link rel="stylesheet" href="estilos/geral.css" media="all" type="text/css">
+    <link rel="stylesheet" href="estilos/min-width-1200px.css" media="screen and (min-width: 1200px)" type="text/css">
+    <link rel="stylesheet" href="estilos/max-width-1200px.css" media="screen and (min-width: 992.1px) and (max-width: 1200px)" type="text/css">
+    <link rel="stylesheet" href="estilos/max-width-992px.css" media="screen and (min-width: 768.1px) and (max-width: 992px)" type="text/css">
+    <link rel="stylesheet" href="estilos/max-width-768px.css" media="screen and (max-width: 768px)" type="text/css">
+    <link rel="stylesheet" href="estilos/max-width-600px.css" media="screen and (max-width: 600px)" type="text/css">
+    <link rel="stylesheet" href="estilos/max-width-400px.css" media="screen and (max-width: 400px)" type="text/css">
 </head>
 <body>
     <header>
         <h1>VSM</h1>
-        <p>Gerenciamneto de Loja Virtual</p>
+        <p>Gerenciamento de Loja Virtual</p>
 
         <nav>
             <a href="">Home</a>
@@ -21,13 +27,47 @@
 
     <main>
         <section>
-            <h2>Bem-vindo</h2>
-            <p></p>
+            <h2>Loja</h2>
+
+            <div id="tabela">
+                <table>
+                    <caption>Loja <span id="nome-da-loja">Sem Nome</span></caption>
+                    <thead>
+                        <tr>
+                            <th>ID</th> <th>Produtos</th> <th>Preços</th> <th>Quantidades</th> <th>Valor Total(Kzs)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>1</td> <td>Produto</td> <td>Preço</td> <td>0</td> <td>0 kzs</td></tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <th colspan="4">Total</th> <td>0 Kzs</td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+
+            <div id="configuracoes">
+                <fieldset><legend>Configurar Loja</legend>
+                    <button>Editar Loja</button>
+                    <button>Adicionar Produto</button>
+                    <button>Editar Produto</button>
+                </fieldset>
+            </div>
         </section>
     </main>
 
     <footer>
+        <div id="contactos">
+            <span>Contactos</span>
+            <span>+244 943 136 535 | +244 941 500 596</span>
+        </div>
 
+        <div>
+            <span id="ano-atual">AnoAtual</span>
+            <span>Felismino Chico</span>
+        </div>
     </footer>
 
     <script src="javascript/main.js" type="text/javascript"></script>

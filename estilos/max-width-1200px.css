@@ -1,0 +1,46 @@
+@charset "UTF-8";
+
+main{
+    width: 100%;
+    
+        section{
+            display: grid;
+            grid-template-areas: 'titulo configuracoes'
+            'tabela configuracoes';
+            width: 95%;
+    
+            h2{
+                grid-area: titulo;
+            }
+    
+            #tabela{
+                grid-area: tabela;
+                margin-bottom: 0px;
+                width: 90%;
+    
+                table{
+                    width: 100%;
+                }
+            }
+    
+            #configuracoes{
+                grid-area: configuracoes;
+                justify-self: end;
+                width: 90%;
+    
+                fieldset{
+                    display: grid;
+                }
+            }
+        }
+    }
+
+    footer{
+
+        div{
+    
+            span{
+                font-size: 0.9em;
+            }
+        }
+    }

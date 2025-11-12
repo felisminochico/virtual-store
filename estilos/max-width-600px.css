@@ -1,0 +1,37 @@
+@charset "UTF-8";
+
+main{
+    max-width: 600px;
+    margin: auto;
+
+    section{
+
+        div{
+            margin: auto;
+            width: 95%;
+        }
+
+        #tabela{
+
+            table{
+                width: 90%;
+            }
+        }
+
+
+        #configuracoes{
+
+
+            fieldset{
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+
+                button{
+                    width: 48%;
+                }
+            }
+        }
+    }
+}

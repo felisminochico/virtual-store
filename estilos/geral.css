@@ -1,11 +1,169 @@
 @charset "UTF-8";
 
+:root{
+    --cor1: rgb(4, 4, 88);
+    --cor2: rgb(89, 46, 22);
+    --cor3: rgb(32, 98, 32);
+    --cor4: rgb(77, 77, 21);
+    --cor5: rgb(21, 88, 86);
+}
+
 *{
     font-family: sans-serif;
     margin: 0px;
     padding: 0px;
 }
 
+body::-webkit-scrollbar{
+    width: 0px;
+}
+
 body{
     background-color: gray;
+    height: 100vh;
+    width: 100vw;
+}
+
+header{
+    background-color: var(--cor1);
+    color: white;
+    padding: 30px 0px 0px 0px;
+
+    h1{
+        font-weight: normal;
+    }
+
+    h1, p{
+        text-align: center;
+    }
+
+    p{
+        padding: 10px 0px 16px 0px;
+    }
+
+    nav{
+        background-color: var(--cor5);
+        padding: 4px 8px;
+        display: flex;
+        gap: 0px 10px;
+
+        a{
+            border-radius: 8px;
+            color: white;
+            padding: 14px 6px;
+            text-decoration: none;
+        }
+
+        a:hover{
+            background-color: var(--cor1);
+        }
+    }
+}
+
+main{
+    background-color: rgb(184, 184, 155);
+    padding: 10px 8px;
+
+    h2{
+        color: var(--cor1);
+        font-size: 1.8em;
+        font-weight: normal;
+        padding: 10px 0px 18px 0px;
+        text-align: center;
+    }
+
+    section{
+        margin: auto;
+
+        #tabela{
+            margin: 0px auto 24px auto;
+            overflow-x: auto;
+
+            table{
+                border-collapse: collapse;
+                margin: auto;
+    
+                caption{
+                    color: var(--cor3);
+                    font-size: 1.1em;
+                    font-weight: bold;
+
+                    padding: 0px 0px 8px 0px;
+    
+                    span{
+                        color: var(--cor1);
+                    }
+                }
+    
+                thead, tfoot{
+                    background-color: var(--cor4);
+                    color: white;
+    
+                    th, td{
+                        font-size: 0.8em;
+                        padding: 8px;
+                    }
+                }
+
+                tbody{
+                    td{
+                        font-size: 0.8em;
+                        padding: 8px;
+                        text-align: center;
+                    }
+                }
+    
+            }
+
+            tfoot{
+
+                td{
+                    text-align: center;
+                }
+            }
+    
+            table, td, th{
+                border: 1px solid black;
+            }
+        }
+
+        #configuracoes{
+
+            fieldset{
+                border: 1px solid var(--cor5);
+                border-radius: 7px;
+                gap: 12px 8px;
+                padding: 10px;
+
+                legend{
+                    color: var(--cor1);
+                    font-weight: bold;
+                    padding: 0px 4px;
+                }
+
+                button{
+                    background-color: var(--cor5);
+                    border: none;
+                    border-radius: 8px;
+                    color: white;
+                    cursor: pointer;
+                    padding: 16px 8px;
+                }
+            }
+        }
+    }
+}
+
+footer{
+    background-color: var(--cor1);
+    color: white;
+    display: grid;
+    gap: 30px 0px;
+    padding: 26px 10px;
+    text-align: center;
+
+    div{
+        display: grid;
+        gap: 10px 0px;
+    }
 }
