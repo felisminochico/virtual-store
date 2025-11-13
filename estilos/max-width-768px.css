@@ -1,7 +1,13 @@
 @charset "UTF-8";
 
-main{
+header{
 
+    h1{
+        font-size: 2.3em;
+    }
+}
+
+main{
 
     section{
         width: 90%;
@@ -46,6 +52,31 @@ main{
                     font-size: 0.9em;
                 }
             }
+        }
+    }
+}
+
+main > div{
+
+    .caixa{
+        width: 70%;
+
+        .cabecalho{
+
+            h3{
+                font-size: 1em;
+            }
+        }
+
+        .inputs{
+
+            input{
+                width: 235px;
+            }
+        }
+
+        .botoes{
+            grid-template-columns: auto auto;
         }
     }
 }

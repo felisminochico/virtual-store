@@ -11,10 +11,11 @@
     <link rel="stylesheet" href="estilos/max-width-768px.css" media="screen and (max-width: 768px)" type="text/css">
     <link rel="stylesheet" href="estilos/max-width-600px.css" media="screen and (max-width: 600px)" type="text/css">
     <link rel="stylesheet" href="estilos/max-width-400px.css" media="screen and (max-width: 400px)" type="text/css">
+    <link rel="stylesheet" href="estilos/max-width-290px.css" media="screen and (max-width: 290px)" type="text/css">
 </head>
 <body>
     <header>
-        <h1>VSM</h1>
+        <h1>GLV</h1>
         <p>Gerenciamento de Loja Virtual</p>
 
         <nav>
@@ -56,6 +57,74 @@
                 </fieldset>
             </div>
         </section>
+
+        <div id="janela-editar-loja">
+            <div class="caixa">
+                <div class="cabecalho">
+                    <h3>GLV - Editar Loja</h3>
+                </div>
+
+                <div class="inputs">
+                    <p><label for="nome-loja">Nome da Loja</label> <input type="text" name="nome" id="nome-loja"></p>
+                </div>
+
+                <div class="mensagem">
+                    <p>Estado...</p>
+                </div>
+
+                <div class="botoes">
+                    <button class="btn-cancelar">Cancelar</button>
+                    <button class="btn-salvar">Salvar</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="janela-adicionar-produto">
+            <div class="caixa">
+                <div class="cabecalho">
+                    <h3>Adicionar Produto</h3>
+                </div>
+
+                <div class="inputs">
+                    <p><label for="nome-produto">Nome do Produto</label> <input type="text" name="nome" id="nome-produto"></p>
+                    <p><label for="preco-produto">Preço do Produto</label> <input type="number" name="preco" id="preco-produto"></p>
+                    <p><label for="quantidade-produto">Quantidade do Produto</label> <input type="number" name="quantidade" id="quantidade-produto"></p>
+                </div>
+
+                <div class="mensagem">
+                    Mensagem
+                </div>
+
+                <div class="botoes">
+                    <button class="btn-cancelar">Cancelar</button>
+                    <button class="btn-salvar">Salvar</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="janela-editar-produto">
+            <div class="caixa">
+                <div class="cabecalho">
+                    <h3>Editar Produto</h3>
+                </div>
+
+                <div class="inputs">
+                    <p><label for="id">ID</label> <input type="number" name="id" id="id"></p>
+                    <p><label for="novo-nome">Novo Nome</label> <input type="text" name="novo-nome" id="novo-nome"></p>
+                    <p><label for="novo-preco">Novo Preço</label> <input type="number" name="novo-preco" id="novo-preco"></p>
+                    <p><label for="nova-quantidade">Nova Quantidade</label> <input type="number" name="nova-quantidade" id="nova-quantidade"></p>
+                </div>
+
+                <div class="mensagem">
+                    Mensagem
+                </div>
+
+                <div class="botoes">
+                    <button class="btn-cancelar">Cancelar</button>
+                    <button class="btn-salvar">Salvar</button>
+                </div>
+            </div>
+        </div>
     </main>
 
     <footer>

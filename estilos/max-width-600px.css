@@ -1,10 +1,32 @@
 @charset "UTF-8";
 
+header{
+
+    h1{
+        font-size: 2em;
+    }
+
+    p{
+        font-size: 0.95em;
+    }
+
+    nav{
+
+        a{
+            font-size: 0.95em;
+        }
+    }
+}
+
 main{
     max-width: 600px;
     margin: auto;
 
     section{
+
+        h2{
+            font-size: 1.62em;
+        }
 
         div{
             margin: auto;
@@ -15,6 +37,10 @@ main{
 
             table{
                 width: 90%;
+
+                caption{
+                    font-size: 1em;
+                }
             }
         }
 
@@ -32,6 +58,31 @@ main{
                     width: 48%;
                 }
             }
+        }
+    }
+}
+
+main > div{
+    
+    .caixa{
+        width: 70%;
+
+        .cabecalho{
+
+            h3{
+                font-size: 1em;
+            }
+        }
+
+        .inputs{
+
+            input{
+                width: 175px;
+            }
+        }
+
+        .botoes{
+            grid-template-columns: auto;
         }
     }
 }

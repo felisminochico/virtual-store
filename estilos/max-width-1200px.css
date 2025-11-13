@@ -1,41 +1,99 @@
 @charset "UTF-8";
 
+header{
+
+    h1{
+        font-size: 2.6em;
+    }
+}
+
 main{
-    width: 100%;
+    /* width: 100%; */
     
-        section{
-            display: grid;
-            grid-template-areas: 'titulo configuracoes'
-            'tabela configuracoes';
-            width: 95%;
-    
-            h2{
-                grid-area: titulo;
+    section{
+        display: grid;
+        grid-template-areas: 'titulo configuracoes'
+        'tabela configuracoes';
+        width: 95%;
+
+        h2{
+            font-size: 1.8em;
+            grid-area: titulo;
+        }
+
+        #tabela{
+            grid-area: tabela;
+            margin-bottom: 0px;
+            width: 90%;
+
+            table{
+                width: 100%;
             }
-    
-            #tabela{
-                grid-area: tabela;
-                margin-bottom: 0px;
-                width: 90%;
-    
-                table{
-                    width: 100%;
-                }
-            }
-    
-            #configuracoes{
-                grid-area: configuracoes;
-                justify-self: end;
-                width: 90%;
-    
-                fieldset{
-                    display: grid;
-                }
+        }
+
+        #configuracoes{
+            grid-area: configuracoes;
+            justify-self: end;
+            width: 90%;
+
+            fieldset{
+                display: grid;
             }
         }
     }
+}
 
-    footer{
+main > div{
+
+    .caixa{
+        display: grid;
+        grid-template-areas: 'cabecalho cabecalho'
+        'inputs botoes'
+        'mensagem mensagem';
+        width: 570px;
+
+        .cabecalho{
+            grid-area: cabecalho;
+
+            h3{
+                font-size: 1em;
+            }
+        }
+
+        .inputs{
+            align-content: center;
+            grid-area: inputs;
+
+            label{
+                font-size: 1.07em;
+            }
+
+            input{
+                width: 210px;
+            }
+        }
+
+        .mensagem{
+            grid-area: mensagem;
+
+            p{
+                padding: 0px 0px 8px 0px;
+            }
+        }
+
+        .botoes{
+            font-size: 1.1em;
+            grid-area: botoes;
+            justify-content: end;
+
+            button{
+                width: 250px;
+            }
+        }
+    }
+}
+
+footer{
 
         div{
     
@@ -43,4 +101,4 @@ main{
                 font-size: 0.9em;
             }
         }
-    }
+}

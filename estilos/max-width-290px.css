@@ -1,0 +1,17 @@
+@charset "UTF-8";
+
+header{
+    min-width: 290px;
+}
+
+main{
+    min-width: 290px;
+}
+
+main > div > div{
+    min-width: 220px;
+}
+
+footer{
+    min-width: 290px;
+}

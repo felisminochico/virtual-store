@@ -4,18 +4,34 @@
     overflow-x: scroll;
 } */
 
-header, footer{
-    min-width: 330px;
+header{
+
+    p{
+        font-size: 0.9em;
+    }
+
+    nav{
+
+        a{
+            font-size: 0.9em;
+        }
+    }
 }
 
 main{
-    min-width: 330px;
-
     section{
+
+        h2{
+            font-size: 1.57em;
+        }
 
         #tabela{
 
             table{
+
+                caption{
+                    font-size: 0.97em;
+                }
 
                 thead{
                     
@@ -46,9 +62,26 @@ main{
                 display: grid;
                 grid-template-columns: 1fr;
 
+                legend{
+                    font-size: 0.98em;
+                }
+
                 button{
                     width: 100%;
                 }
+            }
+        }
+    }
+}
+
+main > div{
+
+    .caixa{
+
+        .cabecalho{
+
+            h3{
+                font-size: 0.93em;
             }
         }
     }

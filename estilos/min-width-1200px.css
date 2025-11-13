@@ -1,5 +1,12 @@
 @charset "UTF-8";
 
+header{
+
+    h1{
+        font-size: 2.6em;
+    }
+}
+
 main{
     width: 100%;
     
@@ -43,7 +50,57 @@ main{
         }
 }
 
-    footer{
+main > div{
+
+    .caixa{
+        display: grid;
+        grid-template-areas: 'cabecalho cabecalho'
+        'inputs botoes'
+        'mensagem mensagem';
+        min-width: 560px;
+
+        .cabecalho{
+            grid-area: cabecalho;
+
+            h3{
+                font-size: 1.06em;
+            }
+        }
+
+        .inputs{
+            align-content: center;
+            grid-area: inputs;
+
+            label{
+                font-size: 1.06em;
+            }
+
+            input{
+                width: 220px;
+            }
+        }
+
+        .mensagem{
+            grid-area: mensagem;
+
+            p{
+                padding: 0px 0px 8px 0px;
+            }
+        }
+
+        .botoes{
+            font-size: 1.1em;
+            grid-area: botoes;
+            justify-content: end;
+
+            button{
+                width: 240px;
+            }
+        }
+    }
+}
+
+footer{
 
         div{
     
@@ -51,4 +108,4 @@ main{
                 font-size: 0.9em;
             }
         }
-    }
+}
