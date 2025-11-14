@@ -70,13 +70,54 @@ main > div{
 
         .inputs{
 
+            label{
+                font-size: 0.88em;
+            }
+
             input{
-                width: 235px;
+                width: 200px;
             }
         }
 
         .botoes{
             grid-template-columns: auto auto;
+        }
+    }
+}
+
+main > div#janela-editar-produto{
+
+    .caixa{
+        
+
+        .inputs{
+            display: grid;
+            grid-template-areas: 'nome id'
+            'preco quantidade';
+
+            #p-id{
+                grid-area: id;
+
+                input{
+                    width: 120px;
+                }
+            }
+
+            #p-nome{
+                grid-area: nome;
+            }
+
+            #p-preco{
+                grid-area: preco;
+            }
+
+            #p-quantidade{
+                grid-area: quantidade;
+
+                input{
+                    width: 120px;
+                }
+            }
         }
     }
 }

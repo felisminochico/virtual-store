@@ -65,7 +65,7 @@ main > div{
             grid-area: inputs;
 
             label{
-                font-size: 1.07em;
+                font-size: 0.9em;
             }
 
             input{
@@ -82,7 +82,7 @@ main > div{
         }
 
         .botoes{
-            font-size: 1.1em;
+            font-size: 1em;
             grid-area: botoes;
             justify-content: end;
 

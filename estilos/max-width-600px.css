@@ -76,6 +76,10 @@ main > div{
 
         .inputs{
 
+            label{
+                font-size: 0.86em;
+            }
+
             input{
                 width: 175px;
             }
@@ -83,6 +87,43 @@ main > div{
 
         .botoes{
             grid-template-columns: auto;
+        }
+    }
+}
+
+main > div#janela-editar-produto{
+
+    .caixa{
+
+        .inputs{
+
+            grid-template-areas: 'nome nome'
+            'preco preco'
+            'id quantidade';
+
+            #p-id{
+                grid-area: id;
+
+                input{
+                    width: 100px;
+                }
+            }
+
+            #p-nome{
+                grid-area: nome;
+            }
+
+            #p-preco{
+                grid-area: preco;
+            }
+
+            #p-quantidade{
+                grid-area: quantidade;
+
+                input{
+                    width: 100px;
+                }
+            }
         }
     }
 }

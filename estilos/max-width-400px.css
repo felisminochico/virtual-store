@@ -74,6 +74,45 @@ main{
     }
 }
 
+main > div#janela-editar-produto{
+
+    .caixa{
+        
+
+        .inputs{
+            display: grid;
+            grid-template-areas: 'nome'
+            'preco'
+            'id'
+            'quantidade';
+
+            #p-id{
+                grid-area: id;
+
+                input{
+                    width: 120px;
+                }
+            }
+
+            #p-nome{
+                grid-area: nome;
+            }
+
+            #p-preco{
+                grid-area: preco;
+            }
+
+            #p-quantidade{
+                grid-area: quantidade;
+
+                input{
+                    width: 120px;
+                }
+            }
+        }
+    }
+}
+
 main > div{
 
     .caixa{

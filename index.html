@@ -51,9 +51,9 @@
 
             <div id="configuracoes">
                 <fieldset><legend>Configurar Loja</legend>
-                    <button>Editar Loja</button>
-                    <button>Adicionar Produto</button>
-                    <button>Editar Produto</button>
+                    <button id="botao-editar-loja">Editar Loja</button>
+                    <button id="botao-adicionar-produto">Adicionar Produto</button>
+                    <button id="botao-editar-produto">Editar Produto</button>
                 </fieldset>
             </div>
         </section>
@@ -82,13 +82,13 @@
         <div id="janela-adicionar-produto">
             <div class="caixa">
                 <div class="cabecalho">
-                    <h3>Adicionar Produto</h3>
+                    <h3>GLV - Adicionar Produto</h3>
                 </div>
 
                 <div class="inputs">
-                    <p><label for="nome-produto">Nome do Produto</label> <input type="text" name="nome" id="nome-produto"></p>
-                    <p><label for="preco-produto">Preço do Produto</label> <input type="number" name="preco" id="preco-produto"></p>
-                    <p><label for="quantidade-produto">Quantidade do Produto</label> <input type="number" name="quantidade" id="quantidade-produto"></p>
+                    <p><label for="nome-produto">Nome</label> <input type="text" name="nome" id="nome-produto"></p>
+                    <p><label for="preco-produto">Preço</label> <input type="number" name="preco" id="preco-produto"></p>
+                    <p><label for="quantidade-produto">Quantidade</label> <input type="number" name="quantidade" id="quantidade-produto"></p>
                 </div>
 
                 <div class="mensagem">
@@ -105,14 +105,14 @@
         <div id="janela-editar-produto">
             <div class="caixa">
                 <div class="cabecalho">
-                    <h3>Editar Produto</h3>
+                    <h3>GLV - Editar Produto</h3>
                 </div>
 
                 <div class="inputs">
-                    <p><label for="id">ID</label> <input type="number" name="id" id="id"></p>
-                    <p><label for="novo-nome">Novo Nome</label> <input type="text" name="novo-nome" id="novo-nome"></p>
-                    <p><label for="novo-preco">Novo Preço</label> <input type="number" name="novo-preco" id="novo-preco"></p>
-                    <p><label for="nova-quantidade">Nova Quantidade</label> <input type="number" name="nova-quantidade" id="nova-quantidade"></p>
+                    <p id="p-id"><label for="id">ID</label> <input type="number" name="id" id="id"></p>
+                    <p id="p-nome"><label for="novo-nome">Novo Nome</label> <input type="text" name="novo-nome" id="novo-nome"></p>
+                    <p id="p-preco"><label for="novo-preco">Novo Preço</label> <input type="number" name="novo-preco" id="novo-preco"></p>
+                    <p id="p-quantidade"><label for="nova-quantidade">Nova Quantidade</label> <input type="number" name="nova-quantidade" id="nova-quantidade"></p>
                 </div>
 
                 <div class="mensagem">

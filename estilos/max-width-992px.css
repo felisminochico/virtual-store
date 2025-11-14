@@ -63,6 +63,10 @@ main > div{
             align-content: center;
             grid-area: inputs;
 
+            label{
+                font-size: 0.9em;
+            }
+
             input{
                 width: 210px;
             }

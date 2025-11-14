@@ -1,5 +1,15 @@
 @charset "UTF-8";
 
+@keyframes aparecer{
+    from{
+        transform: scale(0.2);
+    }
+
+    to{
+        transform: scale(1);
+    }
+}
+
 :root{
     --cor1: rgba(4, 4, 88, 0.822);
     --cor2: rgb(89, 46, 22);
@@ -158,7 +168,7 @@ main > div#janela-adicionar-produto, main > div#janela-editar-produto, main > di
     display: none;
 }
 
-/* main > div#janela-adicionar-produto{
+/* main > div#janela-editar-produto{
     display: block;
 } */
 
@@ -190,6 +200,7 @@ main > div{
 
         .inputs{
             display: grid;
+            gap: 14px 0px;
             padding: 8px;
 
             p{
@@ -212,12 +223,14 @@ main > div{
         }
 
         .mensagem{
-            padding: 12px 8px 8px 8px;
+            padding: 14px 8px;
         }
 
         .botoes{
+            align-content: center;
             display: grid;
             gap: 10px;
+            grid-auto-rows: 50px;
             padding: 8px;
 
             button{
@@ -226,7 +239,7 @@ main > div{
                 color: white;
                 cursor: pointer;
                 font-size: 0.9em;
-                padding: 14px 4px;
+                /* padding: 14px 4px; */
             }
 
             .btn-cancelar{
