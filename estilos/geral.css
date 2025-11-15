@@ -116,6 +116,11 @@ main{
                 }
 
                 tbody{
+                    tr:nth-child(even){
+                        background-color: rgba(32, 98, 32, 0.651);
+                        color: white;
+                    }
+
                     td{
                         font-size: 0.8em;
                         padding: 8px;
