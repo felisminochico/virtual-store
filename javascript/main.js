@@ -1,3 +1,4 @@
+// localStorage.clear()
 // alert("Olá, Mundo! JavaScript");
 const janelaEditarLoja = window.document.getElementById("janela-editar-loja");
 const janelaAdicionarProduto = window.document.getElementById("janela-adicionar-produto");
@@ -18,37 +19,47 @@ const inputNomeLoja = window.document.getElementById("nome-loja");
 const inputNomeProdutoAdd = window.document.getElementById("nome-produto");
 const inputPrecoProdutoAdd = window.document.getElementById("preco-produto");
 const inputQuantidadeProdutoAdd = window.document.getElementById("quantidade-produto");
+const inputIDProdutoEdit = window.document.getElementById("id");
 const inputNomeProdutoEdit = window.document.getElementById("novo-nome");
 const inputQuantidadeProdutoEdit = window.document.querySelector("#nova-quantidade");
 const inputPrecoProdutoEdit = window.document.getElementById("novo-preco");
 const estadoEditarLoja = window.document.getElementById("estado-editar-loja");
 const estadoAdicionarProduto = window.document.getElementById("estado-adicionar-produto");
 const estadoEditarProduto = window.document.getElementById("estado-editar-produto");
+const todosInputs = window.document.querySelectorAll(".inputs input");
+const valorTotalProdutos = window.document.getElementById("valor-total-produtos");
 const anoAtual = window.document.getElementById("ano-atual");
 anoAtual.innerHTML = new Date().toLocaleString("pt-AO", {year: "numeric"});
 
 nomeDaLoja.innerHTML = window.localStorage.getItem("nomeLoja") || "Sem Nome";
 
-if((window.localStorage.getItem("vetorProduto") !== null) && (window.localStorage.getItem("vetorPreco") !== null && window.localStorage.getItem("vetorQuantidade") !== null)){
+const vetorID = JSON.parse(window.localStorage.getItem("vetorIDProdutos")) || [1];
+const vetorProduto = JSON.parse(window.localStorage.getItem("vetorProduto")) || ["Produto"];
+const vetorPreco = JSON.parse(window.localStorage.getItem("vetorPreco")) || [0];
+const vetorQuantidade = JSON.parse(window.localStorage.getItem("vetorQuantidade")) || [0];
+const precoTotalProduto = JSON.parse(window.localStorage.getItem("precoTotal")) || [0];
+valorTotalProdutos.innerHTML = Number(window.localStorage.getItem("valorTotalProdutos")) || 0;
+
+if((window.localStorage.getItem("vetorProduto") !== null && window.localStorage.getItem("valorTotalProdutos") !== null) && (window.localStorage.getItem("vetorPreco") !== null && window.localStorage.getItem("vetorQuantidade") !== null)){
     const resProduto = JSON.parse(window.localStorage.getItem("vetorProduto"));
     const resPreco = JSON.parse(window.localStorage.getItem("vetorPreco"));
     const resQuantidade = JSON.parse(window.localStorage.getItem("vetorQuantidade"));
     const resPrecoTotal = JSON.parse(window.localStorage.getItem("precoTotal"));
-    let id = 1;
+    const vetorID = JSON.parse(window.localStorage.getItem("vetorIDProdutos"));
+    let valorTotalProd = Number(window.localStorage.getItem("valorTotalProdutos"));
 
     for(let c = 0; c < resProduto.length; c++){
         let linha = window.document.createElement("tr");
         const dadoID = window.document.createElement("td");
-        id++;
-        dadoID.innerHTML = id;
+        dadoID.innerHTML = vetorID[c];
         const dadosProduto = window.document.createElement("td");
         dadosProduto.innerHTML = resProduto[c];
         const dadoPreco = window.document.createElement("td");
-        dadoPreco.innerHTML = Number(resPreco[c]).toLocaleString("pt-AO", {style: "currency", currency: "AOA"});
+        dadoPreco.innerHTML = Number(resPreco[c]).toLocaleString("pt-AO") + " Kzs";
         const dadosQuantidade = window.document.createElement("td");
         dadosQuantidade.innerHTML = resQuantidade[c];
         const dadosPrecoTotal = window.document.createElement("td");
-        dadosPrecoTotal.innerHTML = Number(resPrecoTotal[c]).toLocaleString("pt-AO", {style: "currency", currency: "AOA"});
+        dadosPrecoTotal.innerHTML = Number(resPrecoTotal[c]).toLocaleString("pt-AO") + " Kzs";
         
         linha.appendChild(dadoID);
         linha.appendChild(dadosProduto);
@@ -57,6 +68,29 @@ if((window.localStorage.getItem("vetorProduto") !== null) && (window.localStorag
         linha.appendChild(dadosPrecoTotal);
         corpoDaLoja.appendChild(linha);
     }
+    valorTotalProdutos.innerHTML = Number(valorTotalProd).toLocaleString("pt-AO") + " Kzs";
+}else{
+    for(let c = 0; c < vetorProduto.length; c++){
+        let linha = window.document.createElement("tr");
+        const dadoID = window.document.createElement("td");
+        dadoID.innerHTML = vetorID[c];
+        const dadosProduto = window.document.createElement("td");
+        dadosProduto.innerHTML = vetorProduto[c];
+        const dadoPreco = window.document.createElement("td");
+        dadoPreco.innerHTML = Number(vetorPreco[c]).toLocaleString("pt-AO") + " Kzs";
+        const dadosQuantidade = window.document.createElement("td");
+        dadosQuantidade.innerHTML = vetorQuantidade[c];
+        const dadosPrecoTotal = window.document.createElement("td");
+        dadosPrecoTotal.innerHTML = (Number(vetorPreco[c]) * Number(vetorQuantidade[c])).toLocaleString("pt-AO") + " Kzs";
+
+        linha.appendChild(dadoID);
+        linha.appendChild(dadosProduto);
+        linha.appendChild(dadoPreco);
+        linha.appendChild(dadosQuantidade);
+        linha.appendChild(dadosPrecoTotal);
+        corpoDaLoja.appendChild(linha);
+    }
+    valorTotalProdutos.innerHTML = (Number(vetorPreco[0]) * Number(vetorQuantidade[0])).toLocaleString("pt-AO") + " Kzs"
 }
 
 //Função para fechar todas as janelas
@@ -68,13 +102,21 @@ botoesSair.forEach(function(botao){
         estadoEditarLoja.innerHTML = "Estado...";
         estadoAdicionarProduto.innerHTML = "Estado...";
         estadoEditarProduto.innerHTML = "Estado...";
+        window.document.body.style.overflow = "auto";
+    })
+})
+
+todosInputs.forEach((input) =>{
+    input.addEventListener("input", () =>{
+        estadoAdicionarProduto.innerHTML = "Estado...";
+        estadoEditarLoja.innerHTML = "Estado...";
+        estadoEditarProduto.innerHTML = "Estado...";
     })
 })
 
 //Função para mostrar Janela
-function mostarJanela(janela, input){
+function mostarJanela(janela){
     janela.style.display = "block";
-    input.focus();
 }
 
 //Função para animação
@@ -86,19 +128,19 @@ function animarCaixa(caixa){
 
 //Evento de clique do Botão Editar Loja
 botaoEditarLoja.addEventListener("click", function(){
-    mostarJanela(janelaEditarLoja, inputNomeLoja);
+    mostarJanela(janelaEditarLoja);
     animarCaixa(caixaEditarLoja);
 })
 
 //Evento de clique do Botão Adicionar Produto
 botaoAdicionarProduto.addEventListener("click", function(){
-    mostarJanela(janelaAdicionarProduto, inputNomeProdutoAdd);
+    mostarJanela(janelaAdicionarProduto);
     animarCaixa(caixaAdicionarProduto);
 })
 
 //Evento de clique do Botão Editar Produto
 botaoEditarProduto.addEventListener("click", function(){
-    mostarJanela(janelaEditarProduto, inputNomeProdutoEdit);
+    mostarJanela(janelaEditarProduto);
     animarCaixa(caixaEditarProduto);
 })
 
@@ -107,48 +149,32 @@ botaoSalvarAdicionarProduto.addEventListener("click", function(){
     const promesa = new Promise(function(resolve, reject){
         if((inputNomeProdutoAdd.value.length === 0 || inputPrecoProdutoAdd.value.length === 0) || inputQuantidadeProdutoAdd.value.length === 0){
             reject("Preencha todos os campos.");
-        }else if(((inputNomeProdutoAdd.value.length < 3 || inputNomeProdutoAdd.value.length > 14) || (Number(inputPrecoProdutoAdd.value) || Number(inputNomeProdutoAdd.value >= 5000))) < 0 || ((Number(inputQuantidadeProdutoAdd.value) < 0))){
+        }else if(((inputNomeProdutoAdd.value.length < 3 || inputNomeProdutoAdd.value.length > 14) || (Number(inputPrecoProdutoAdd.value) < 50 || Number(inputPrecoProdutoAdd.value > 5000))) || ((Number(inputQuantidadeProdutoAdd.value) < 0 || Number(inputQuantidadeProdutoAdd.value) > 100))){
             reject("Produto, Quantidade ou Preço inválido.");
         }else{
             resolve("Dados adicionados com sucesso.");
         }
     }).then((res) =>{
-        const vetorID = [1];
-        const vetorProduto = JSON.parse(window.localStorage.getItem("vetorProduto")) || [];
-        const vetorPreco = JSON.parse(window.localStorage.getItem("vetorPreco")) || [];
-        const vetorQuantidade = JSON.parse(window.localStorage.getItem("vetorQuantidade")) || [];
-        const precoTotalProduto = JSON.parse(window.localStorage.getItem("precoTotal")) || [];
+        // const vetorID = JSON.parse(window.localStorage.getItem("vetorIDProdutos")) || [1];
+        // const vetorProduto = JSON.parse(window.localStorage.getItem("vetorProduto")) || [];
+        // const vetorPreco = JSON.parse(window.localStorage.getItem("vetorPreco")) || [];
+        // const vetorQuantidade = JSON.parse(window.localStorage.getItem("vetorQuantidade")) || [];
+        // const precoTotalProduto = JSON.parse(window.localStorage.getItem("precoTotal")) || [];
+        // let valorTotalProdutos = Number(window.localStorage.getItem("valorTotalProdutos")) || 0;
         vetorProduto.push(inputNomeProdutoAdd.value);
+        vetorID.push((Number(vetorProduto.length)));
         vetorPreco.push(inputPrecoProdutoAdd.value);
         vetorQuantidade.push(inputQuantidadeProdutoAdd.value);
         precoTotalProduto.push((Number(inputPrecoProdutoAdd.value) * Number(inputQuantidadeProdutoAdd.value)));
+        valorTotalProdutos.innerHTML = Array.from(precoTotalProduto).reduce((acc, valor) =>{
+            return acc += valor;
+        });
         window.localStorage.setItem("vetorProduto", JSON.stringify(vetorProduto));
         window.localStorage.setItem("vetorPreco", JSON.stringify(vetorPreco));
         window.localStorage.setItem("vetorQuantidade", JSON.stringify(vetorQuantidade));
+        window.localStorage.setItem("vetorIDProdutos", JSON.stringify(vetorID));
         window.localStorage.setItem("precoTotal", JSON.stringify(precoTotalProduto));
-        let id = Number(vetorProduto.length);
-        
-        for(let c = 0; c < vetorProduto.length; c++){
-            let linha = window.document.createElement("tr");
-            id++;
-            const dadoID = window.document.createElement("td");
-            dadoID.innerHTML = id;
-            const dadosProduto = window.document.createElement("td");
-            dadosProduto.innerHTML = vetorProduto[c];
-            const dadoPreco = window.document.createElement("td");
-            dadoPreco.innerHTML = Number(vetorPreco[c]).toLocaleString("pt-AO", {style: "currency", currency: "AOA"});
-            const dadosQuantidade = window.document.createElement("td");
-            dadosQuantidade.innerHTML = vetorQuantidade[c];
-            const dadosPrecoTotal = window.document.createElement("td");
-            dadosPrecoTotal.innerHTML = Number(precoTotalProduto[c]).toLocaleString("pt-AO", {style: "currency", currency: "AOA"});
-
-            linha.appendChild(dadoID);
-            linha.appendChild(dadosProduto);
-            linha.appendChild(dadoPreco);
-            linha.appendChild(dadosQuantidade);
-            linha.appendChild(dadosPrecoTotal);
-            corpoDaLoja.appendChild(linha);
-        }
+        window.localStorage.setItem("valorTotalProdutos", valorTotalProdutos.innerHTML);
 
         inputNomeProdutoAdd.value = "";
         inputPrecoProdutoAdd.value = "";
@@ -167,7 +193,7 @@ botaoSalvarEditarLoja.addEventListener("click", ()=>{
         if(inputNomeLoja.value.length < 3 || inputNomeLoja.value.length > 14){
             reject("Nome inválido");  
         }else{
-            resolve("Nome adcionado com sucesso!");
+            resolve("Nome adicionado com sucesso! Recarregue a página.");
         }  
     }).then((res) =>{
         window.localStorage.setItem("nomeLoja", inputNomeLoja.value);
@@ -180,5 +206,34 @@ botaoSalvarEditarLoja.addEventListener("click", ()=>{
 })
 
 botaoSalvarEditarProduto.addEventListener("click", function(){
-    alert("Função não disponível...");
+    estadoEditarProduto.innerHTML = "Aguarde...";
+    const promise = new Promise((resolve, reject) =>{
+      if((inputIDProdutoEdit.value.length === 0 || inputNomeProdutoEdit.value.length === 0) || (inputPrecoProdutoEdit.value.length === 0 || inputQuantidadeProdutoEdit.value.length === 0)){
+        reject("Preencha todos os campos.");
+        }else if(Number(inputIDProdutoEdit.value)  === 0 || inputIDProdutoEdit.value > JSON.parse(window.localStorage.getItem("vetorIDProdutos")).length){
+            reject("ID inválido.")
+        }else if(((inputNomeProdutoEdit.value.length < 3 || inputNomeProdutoEdit.value.length > 14) || (Number(inputPrecoProdutoEdit.value) < 50 || Number(inputPrecoProdutoEdit.value) > 5000)) || ((Number(inputQuantidadeProdutoEdit.value) < 0 || Number(inputQuantidadeProdutoEdit.value > 100)))){
+            reject("Produto, Quantidade ou Preço inválido.");
+        }else{
+            resolve("Dados atualizados com sucesso! Recarregue a página.");
+        }
+    }).then((res) =>{
+        vetorProduto[(Number(inputIDProdutoEdit.value) - 1)] = inputNomeProdutoEdit.value;
+        vetorPreco[(Number(inputIDProdutoEdit.value) - 1)] = Number(inputPrecoProdutoEdit.value);
+        vetorQuantidade[(Number(inputIDProdutoEdit.value) - 1)] = Number(inputQuantidadeProdutoEdit.value);
+        precoTotalProduto[(Number(inputIDProdutoEdit.value) - 1)] = Number(vetorPreco[(Number(inputIDProdutoEdit.value) - 1)]) * Number(vetorQuantidade[(Number(inputIDProdutoEdit.value) - 1)]);
+        valorTotalProdutos.innerHTML = Array.from(precoTotalProduto).reduce((acc, valor) =>{
+            return acc += valor;
+        });
+
+        window.localStorage.setItem("vetorProduto", JSON.stringify(vetorProduto));
+        window.localStorage.setItem("vetorPreco", JSON.stringify(vetorPreco));
+        window.localStorage.setItem("vetorQuantidade", JSON.stringify(vetorQuantidade));
+        window.localStorage.setItem("precoTotal", JSON.stringify(precoTotalProduto));
+        window.localStorage.setItem("valorTotalProdutos", valorTotalProdutos.innerHTML);
+
+        estadoEditarProduto.innerHTML = `<strong style='color: green;'>Tudo certo:</strong> ${res}`;
+    }).catch((erro) =>{
+        estadoEditarProduto.innerHTML = `<strong style='color: red;'>ERRO:</strong> ${erro}`;
+    })
 })

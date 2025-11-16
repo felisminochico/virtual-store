@@ -85,10 +85,42 @@ main > div{
     }
 }
 
+main > #janela-adicionar-produto{
+
+    .caixa{
+        width: 420px;
+
+        .inputs{
+            grid-template-areas: 'nome preco'
+            'quantidade quantidade';
+
+            .p-nome-add{
+                grid-area: nome;
+            }
+
+            .p-preco-add{
+                grid-area: preco;
+
+                input{
+                    width: 115px;
+                }
+            }
+
+            .p-quantidade-add{
+                grid-area: quantidade;
+
+                input{
+                    width: 115px;
+                }
+            }
+        }
+    }
+}
+
 main > div#janela-editar-produto{
 
     .caixa{
-        
+        width: 460px;
 
         .inputs{
             display: grid;

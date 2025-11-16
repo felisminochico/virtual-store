@@ -36,7 +36,7 @@ main{
         #tabela{
 
             table{
-                width: 90%;
+                width: 500px;
 
                 caption{
                     font-size: 1em;
@@ -94,34 +94,77 @@ main > div{
 main > div#janela-editar-produto{
 
     .caixa{
+        width: 330px;
 
         .inputs{
 
-            grid-template-areas: 'nome nome'
-            'preco preco'
-            'id quantidade';
+            grid-template-areas: 'nome id'
+            'preco quantidade';
 
             #p-id{
                 grid-area: id;
 
                 input{
-                    width: 100px;
+                    width: 95px;
                 }
             }
 
             #p-nome{
                 grid-area: nome;
+
+                input{
+                    width: 130px;
+                }
             }
 
             #p-preco{
                 grid-area: preco;
+
+                input{
+                    width: 130px;
+                }
             }
 
             #p-quantidade{
                 grid-area: quantidade;
 
                 input{
+                    width: 95px;
+                }
+            }
+        }
+    }
+}
+
+main > #janela-adicionar-produto{
+
+    .caixa{
+        width: 300px;
+        .inputs{
+            grid-template-areas: 'nome preco'
+            'quantidade quantidade';
+
+            .p-nome-add{
+                grid-area: nome;
+
+                input{
+                    width: 120px;
+                }
+            }
+
+            .p-preco-add{
+                grid-area: preco;
+
+                input{
                     width: 100px;
+                }
+            }
+
+            .p-quantidade-add{
+                grid-area: quantidade;
+
+                input{
+                    width: 120px;
                 }
             }
         }

@@ -76,9 +76,9 @@ main{
 
 main > div#janela-editar-produto{
 
-    .caixa{
-        
-
+    .caixa{        
+        min-width: 220px;
+        width: 76%;
         .inputs{
             display: grid;
             grid-template-areas: 'nome'
@@ -90,7 +90,7 @@ main > div#janela-editar-produto{
                 grid-area: id;
 
                 input{
-                    width: 120px;
+                    width: 80px;
                 }
             }
 
@@ -100,13 +100,17 @@ main > div#janela-editar-produto{
 
             #p-preco{
                 grid-area: preco;
+
+                input{
+                    
+                }
             }
 
             #p-quantidade{
                 grid-area: quantidade;
 
                 input{
-                    width: 120px;
+                    width: 80px;
                 }
             }
         }
@@ -121,6 +125,52 @@ main > div{
 
             h3{
                 font-size: 0.93em;
+            }
+        }
+
+        .inputs{
+
+            input{
+                input{
+                    padding: 5px;
+                }
+            }
+        }
+    }
+}
+
+main > #janela-adicionar-produto{
+
+    .caixa{
+        width: 70%;
+
+        .inputs{
+            grid-template-areas: 'nome'
+            'preco'
+            'quantidade';
+
+            .p-nome-add{
+                grid-area: nome;
+
+                input{
+                    width: 140px;
+                }
+            }
+
+            .p-preco-add{
+                grid-area: preco;
+
+                input{
+                    width: 140px;
+                }
+            }
+
+            .p-quantidade-add{
+                grid-area: quantidade;
+
+                input{
+                    width: 140px;
+                }
             }
         }
     }

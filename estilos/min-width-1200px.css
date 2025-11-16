@@ -57,7 +57,7 @@ main > div{
         grid-template-areas: 'cabecalho cabecalho'
         'inputs botoes'
         'mensagem mensagem';
-        min-width: 560px;
+        width: 500px;
 
         .cabecalho{
             grid-area: cabecalho;
@@ -94,8 +94,91 @@ main > div{
             justify-content: end;
 
             button{
-                width: 240px;
+                width: 200px;
             }
+        }
+    }
+}
+
+main > #janela-adicionar-produto{
+
+    .caixa{
+
+        .inputs{
+            grid-template-areas: 'nome nome'
+            'preco quantidade';
+
+            .p-nome-add{
+                grid-area: nome;
+
+                input{
+                    width: 227px;
+                }
+            }
+
+            .p-preco-add{
+                grid-area: preco;
+
+                input{
+                    width: 100px;
+                }
+            }
+
+            .p-quantidade-add{
+                grid-area: quantidade;
+
+                input{
+                    width: 100px;
+                }
+            }
+        }
+    }
+}
+
+main > #janela-editar-produto{
+
+    .caixa{
+
+        .inputs{
+            column-gap: 10px;
+            grid-template-areas: 'nome id'
+            'preco quantidade';
+
+            #p-id{
+                grid-area: id;
+
+                input{
+                    width: 90px;
+                }
+            }
+
+            #p-nome{
+                grid-area: nome;
+
+                input{
+                    width: 120px;
+                }
+            }
+
+            #p-preco{
+                grid-area: preco;
+
+                input{
+                    width: 120px;
+                }
+            }
+
+            #p-quantidade{
+                grid-area: quantidade;
+
+                input{
+                    width: 90px;
+                }
+            }
+        }
+
+        .botoes{
+            align-content: center;
         }
     }
 }

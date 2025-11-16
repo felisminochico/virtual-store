@@ -39,11 +39,11 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr><td>1</td> <td>Produto</td> <td>Preço</td> <td>0</td> <td>0 kzs</td></tr>
+                        <!-- <tr><td>1</td> <td>Produto</td> <td>Preço</td> <td>0</td> <td>0 kzs</td></tr> -->
                     </tbody>
                     <tfoot>
                         <tr>
-                            <th colspan="4">Total</th> <td>0 Kzs</td>
+                            <th colspan="4">Total</th> <td id="valor-total-produtos">0 Kzs</td>
                         </tr>
                     </tfoot>
                 </table>
@@ -86,13 +86,13 @@
                 </div>
 
                 <div class="inputs">
-                    <p><label for="nome-produto">Nome</label> <input type="text" name="nome" id="nome-produto"></p>
-                    <p><label for="preco-produto">Preço</label> <input type="number" name="preco" id="preco-produto"></p>
-                    <p><label for="quantidade-produto">Quantidade</label> <input type="number" name="quantidade" id="quantidade-produto"></p>
+                    <p class="p-nome-add"><label for="nome-produto">Nome</label> <input type="text" name="nome" id="nome-produto"></p>
+                    <p class="p-preco-add"><label for="preco-produto">Preço</label> <input type="number" name="preco" id="preco-produto"></p>
+                    <p class="p-quantidade-add"><label for="quantidade-produto">Quantidade</label> <input type="number" name="quantidade" id="quantidade-produto"></p>
                 </div>
 
                 <div class="mensagem" id="estado-adicionar-produto">
-                    Mensagem
+                    Estado...
                 </div>
 
                 <div class="botoes">
@@ -112,11 +112,11 @@
                     <p id="p-id"><label for="id">ID</label> <input type="number" name="id" id="id"></p>
                     <p id="p-nome"><label for="novo-nome">Novo Nome</label> <input type="text" name="novo-nome" id="novo-nome"></p>
                     <p id="p-preco"><label for="novo-preco">Novo Preço</label> <input type="number" name="novo-preco" id="novo-preco"></p>
-                    <p id="p-quantidade"><label for="nova-quantidade">Nova Quantidade</label> <input type="number" name="nova-quantidade" id="nova-quantidade"></p>
+                    <p id="p-quantidade"><label for="nova-quantidade">Nova Quant</label> <input type="number" name="nova-quantidade" id="nova-quantidade"></p>
                 </div>
 
                 <div class="mensagem" id="estado-editar-produto">
-                    Mensagem
+                    Estado...
                 </div>
 
                 <div class="botoes">
