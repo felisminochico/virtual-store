@@ -152,7 +152,7 @@ botaoSalvarAdicionarProduto.addEventListener("click", function(){
         }else if(((inputNomeProdutoAdd.value.length < 3 || inputNomeProdutoAdd.value.length > 14) || (Number(inputPrecoProdutoAdd.value) < 50 || Number(inputPrecoProdutoAdd.value > 5000))) || ((Number(inputQuantidadeProdutoAdd.value) < 0 || Number(inputQuantidadeProdutoAdd.value) > 100))){
             reject("Produto, Quantidade ou Preço inválido.");
         }else{
-            resolve("Dados adicionados com sucesso.");
+            resolve(`Produto ${inputNomeProdutoAdd.value} adicionado com sucesso`);
         }
     }).then((res) =>{
         // const vetorID = JSON.parse(window.localStorage.getItem("vetorIDProdutos")) || [1];
@@ -166,7 +166,7 @@ botaoSalvarAdicionarProduto.addEventListener("click", function(){
         vetorPreco.push(inputPrecoProdutoAdd.value);
         vetorQuantidade.push(inputQuantidadeProdutoAdd.value);
         precoTotalProduto.push((Number(inputPrecoProdutoAdd.value) * Number(inputQuantidadeProdutoAdd.value)));
-        valorTotalProdutos.innerHTML = Array.from(precoTotalProduto).reduce((acc, valor) =>{
+        let valorTotalProdutos = Array.from(precoTotalProduto).reduce((acc, valor) =>{
             return acc += valor;
         });
         window.localStorage.setItem("vetorProduto", JSON.stringify(vetorProduto));
@@ -174,16 +174,16 @@ botaoSalvarAdicionarProduto.addEventListener("click", function(){
         window.localStorage.setItem("vetorQuantidade", JSON.stringify(vetorQuantidade));
         window.localStorage.setItem("vetorIDProdutos", JSON.stringify(vetorID));
         window.localStorage.setItem("precoTotal", JSON.stringify(precoTotalProduto));
-        window.localStorage.setItem("valorTotalProdutos", valorTotalProdutos.innerHTML);
+        window.localStorage.setItem("valorTotalProdutos", valorTotalProdutos);
 
         inputNomeProdutoAdd.value = "";
         inputPrecoProdutoAdd.value = "";
         inputQuantidadeProdutoAdd.value = "";
 
-        estadoAdicionarProduto.innerHTML = "<strong style='color: green;'>Tudo certo:</strong> " + res;
+        estadoAdicionarProduto.innerHTML = `<span style='color: rgb(21, 88, 86);'>${res}</span>`;
 
     }).catch((erro) =>{
-        estadoAdicionarProduto.innerHTML = "<strong style='color: red;'>ERRO:</strong> " + erro;
+        estadoAdicionarProduto.innerHTML = `<span style='color: red;'>${erro}</span>`;
     })
 })
 
@@ -193,15 +193,15 @@ botaoSalvarEditarLoja.addEventListener("click", ()=>{
         if(inputNomeLoja.value.length < 3 || inputNomeLoja.value.length > 14){
             reject("Nome inválido");  
         }else{
-            resolve("Nome adicionado com sucesso! Recarregue a página.");
+            resolve("Nome alterado com sucesso");
         }  
     }).then((res) =>{
         window.localStorage.setItem("nomeLoja", inputNomeLoja.value);
         nomeDaLoja.innerHTML = window.localStorage.getItem("nomeLoja");
         inputNomeLoja.value = "";
-        estadoEditarLoja.innerHTML = `<strong style='color: green;'>Tudo certo:</strong> ${res}`;
+        estadoEditarLoja.innerHTML = `<span style='color: rgb(21, 88, 86);'>${res}</span>`;
     }).catch((erro)=>{
-        estadoEditarLoja.innerHTML = `<strong style='color: red;'>ERRO:</strong> ${erro}`;
+        estadoEditarLoja.innerHTML = `<span style='color: red;'>${erro}</span>`;
     })
 })
 
@@ -215,7 +215,7 @@ botaoSalvarEditarProduto.addEventListener("click", function(){
         }else if(((inputNomeProdutoEdit.value.length < 3 || inputNomeProdutoEdit.value.length > 14) || (Number(inputPrecoProdutoEdit.value) < 50 || Number(inputPrecoProdutoEdit.value) > 5000)) || ((Number(inputQuantidadeProdutoEdit.value) < 0 || Number(inputQuantidadeProdutoEdit.value > 100)))){
             reject("Produto, Quantidade ou Preço inválido.");
         }else{
-            resolve("Dados atualizados com sucesso! Recarregue a página.");
+            resolve(`Produto atualizado com sucesso`);
         }
     }).then((res) =>{
         vetorProduto[(Number(inputIDProdutoEdit.value) - 1)] = inputNomeProdutoEdit.value;
@@ -232,8 +232,8 @@ botaoSalvarEditarProduto.addEventListener("click", function(){
         window.localStorage.setItem("precoTotal", JSON.stringify(precoTotalProduto));
         window.localStorage.setItem("valorTotalProdutos", valorTotalProdutos.innerHTML);
 
-        estadoEditarProduto.innerHTML = `<strong style='color: green;'>Tudo certo:</strong> ${res}`;
+        estadoEditarProduto.innerHTML = `<span style='color: rgb(21, 88, 86);'>${res}</span>`;
     }).catch((erro) =>{
-        estadoEditarProduto.innerHTML = `<strong style='color: red;'>ERRO:</strong> ${erro}`;
+        estadoEditarProduto.innerHTML = `<span style='color: red;'>${erro}</span>`;
     })
 })
