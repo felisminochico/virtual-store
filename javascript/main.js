@@ -1,4 +1,4 @@
-// localStorage.clear()
+//localStorage.clear()
 // alert("Olá, Mundo! JavaScript");
 const janelaEditarLoja = window.document.getElementById("janela-editar-loja");
 const janelaAdicionarProduto = window.document.getElementById("janela-adicionar-produto");
